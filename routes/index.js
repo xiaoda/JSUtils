@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/', function(req, res, next) {
-  res.send('Welcome to JSUtils!')
+  res.render('index', {title: 'JSUtils'})
 })
 
 module.exports = router

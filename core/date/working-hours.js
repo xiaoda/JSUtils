@@ -41,7 +41,7 @@ function getWorkingHours (startDateTime, endDateTime, countingPeriods = []) {
   const minutes = seconds / 60
   const hours = minutes / 60
 
-  return {hours}
+  return hours
 }
 
 module.exports = getWorkingHours

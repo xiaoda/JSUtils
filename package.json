@@ -1,10 +1,11 @@
 {
-  "name": "jsutils",
+  "name": "JSUtils",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "apidoc": "apidoc -i routes/ -o public/apidoc/"
+    "apidoc": "apidoc -i routes/ -o public/apidoc/",
+    "test": "node ./test-custom/test.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

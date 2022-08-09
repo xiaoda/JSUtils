@@ -20,7 +20,7 @@ router.get('/working-hours', function(req, res, next) {
   let {startDateTime, endDateTime, countingPeriods} = req.query
   if (countingPeriods) countingPeriods = eval(countingPeriods)
   else countingPeriods = []
-  const {hours} = getWorkingHours(startDateTime, endDateTime, countingPeriods)
+  const hours = getWorkingHours(startDateTime, endDateTime, countingPeriods)
   res.json({hours})
 })
 
