@@ -5,6 +5,7 @@ const getWorkingHours = require('../core/date/working-hours')
 /**
  * @api {get} /date/working-hours 计算工作时间
  * @apiGroup Date
+ * @apiDescription [Source code↗](https://github.com/xiaoda/JSUtils/blob/master/core/date/working-hours.js)
  * 
  * @apiQuery {String} startDateTime 开始日期时间
  * @apiQuery {String} endDateTime 结束日期时间
