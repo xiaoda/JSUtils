@@ -1,4 +1,4 @@
-const COUNTING_PERIODS = [{
+const CountingPeriods = [{
   start: '9:00:00',
   duration: 3 * 60 * 60 // 3 hours
 }, {
@@ -10,7 +10,7 @@ function getWorkingHours (startDateTime, endDateTime, countingPeriods = []) {
   const startTimestamp = new Date(startDateTime).getTime()
   const endTimestamp = new Date(endDateTime).getTime()
   const startDate = startDateTime.split(' ')[0]
-  if (!countingPeriods.length) countingPeriods = COUNTING_PERIODS
+  if (!countingPeriods.length) countingPeriods = CountingPeriods
 
   function getAccumulatedTime (countingPeriod) {
     const loopDateTime = startDate + ' ' + countingPeriod.start
@@ -44,4 +44,4 @@ function getWorkingHours (startDateTime, endDateTime, countingPeriods = []) {
   return hours
 }
 
-module.exports = getWorkingHours
+module.exports = {getWorkingHours}

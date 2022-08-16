@@ -1,5 +1,10 @@
 {
   "name": "JSUtils",
   "description": "函数方法接口文档",
-  "sampleUrl": true
+  "sampleUrl": true,
+  "order": [
+    "workingHours",
+    "firstDateOfMonth",
+    "lastDateOfMonth"
+  ]
 }

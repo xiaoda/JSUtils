@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "apidoc": "apidoc -i routes/ -o public/apidoc/",
-    "test": "node ./test-custom/test.js"
+    "test": "node ./test/test.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
