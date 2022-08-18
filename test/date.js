@@ -1,9 +1,10 @@
-const {squareBracket, describe, expect} = require('./module')
+const {h2, describe, expect} = require('./module')
 const {getWorkingHours} = require('../core/date/working-hours')
 const {getFirstDateOfMonth, getLastDateOfMonth} = require('../core/date/first-and-last-date')
+const {getPartOfDay} = require('../core/date/part-of-day')
 
 function testingGetWorkingHours () {
-  squareBracket('getWorkingHours')
+  h2('getWorkingHours')
 
   describe('There should be 8 working hours in 1 day')
   expect(getWorkingHours('2022/8/1 00:00:00', '2022/8/1 23:59:59'), 8)
@@ -31,7 +32,7 @@ function testingGetWorkingHours () {
 }
 
 function testingGetFirstDateOfMonth () {
-  squareBracket('getFirstDateOfMonth')
+  h2('getFirstDateOfMonth')
 
   describe('The first date of 2022/8 should be 2022/8/1')
   expect(getFirstDateOfMonth(2022, 8), '2022/8/1')
@@ -44,7 +45,7 @@ function testingGetFirstDateOfMonth () {
 }
 
 function testingGetLastDateOfMonth () {
-  squareBracket('getLastDateOfMonth')
+  h2('getLastDateOfMonth')
 
   describe('The last date of 2022/8 should be 2022/8/31')
   expect(getLastDateOfMonth(2022, 8), '2022/8/31')
@@ -56,8 +57,31 @@ function testingGetLastDateOfMonth () {
   expect(getLastDateOfMonth('2022', '8'), '2022/8/31')
 }
 
+function testingGetPartOfDay () {
+  h2('getPartOfDay')
+
+  describe('5:30 should be 凌晨')
+  expect(getPartOfDay('2022/8/1 5:30:00'), '凌晨')
+
+  describe('6:30 should be 上午')
+  expect(getPartOfDay('2022/8/1 6:30:00'), '上午')
+
+  describe('12:30 should be 上午')
+  expect(getPartOfDay('2022/8/1 12:30:00'), '上午')
+
+  describe('13:30 should be 下午')
+  expect(getPartOfDay('2022/8/1 13:30:00'), '下午')
+
+  describe('It should work when time lacks seconds part')
+  expect(getPartOfDay('2022/8/1 5:30'), '凌晨')
+
+  describe('It should work when only time presented')
+  expect(getPartOfDay('5:30:00'), '凌晨')
+}
+
 module.exports = {
   testingGetWorkingHours,
   testingGetFirstDateOfMonth,
-  testingGetLastDateOfMonth
+  testingGetLastDateOfMonth,
+  testingGetPartOfDay
 }

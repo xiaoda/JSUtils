@@ -5,6 +5,8 @@
   "order": [
     "workingHours",
     "firstDateOfMonth",
-    "lastDateOfMonth"
+    "lastDateOfMonth",
+    "partOfDay",
+    "arrayToObject"
   ]
 }

@@ -3,11 +3,11 @@ const testsCount = {
   fail: 0
 }
 
-function brace (message) {
+function h1 (message) {
   console.log(`{${message}}`)
 }
 
-function squareBracket (message) {
+function h2 (message) {
   console.log(`[${message}]`)
 }
 
@@ -31,9 +31,9 @@ function expect (result, expected) {
 }
 
 function summarize () {
-  brace('Summary')
+  h1('Summary')
   console.log('  Pass: ' + testsCount.pass)
   console.log('  Fail: ' + testsCount.fail)
 }
 
-module.exports = {squareBracket, describe, expect, summarize}
+module.exports = {h2, describe, expect, summarize}
