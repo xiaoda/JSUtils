@@ -4,6 +4,7 @@
   "sampleUrl": true,
   "order": [
     "workingHours",
+    "workingHoursPost",
     "firstDateOfMonth",
     "lastDateOfMonth",
     "partOfDay",
