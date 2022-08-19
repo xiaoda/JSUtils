@@ -29,12 +29,12 @@ router.get('/working-hours', (req, res, next) => {
  * @apiDescription [Source code↗](https://github.com/xiaoda/JSUtils/blob/master/core/date/working-hours.js)
  * @apiGroup Date
  * 
- * @apiQuery {String} startDateTime 开始日期时间
- * @apiQuery {String} endDateTime 结束日期时间
- * @apiQuery {Array} [countingPeriods] 自定义上下班时间
+ * @apiBody {String} startDateTime 开始日期时间
+ * @apiBody {String} endDateTime 结束日期时间
+ * @apiBody {Array} [countingPeriods] 自定义上下班时间
  */
 router.post('/working-hours', (req, res, next) => {
-  let {startDateTime, endDateTime, countingPeriods} = req.query
+  let {startDateTime, endDateTime, countingPeriods} = req.body
   if (!countingPeriods) countingPeriods = []
   const hours = getWorkingHours(startDateTime, endDateTime, countingPeriods)
   res.json({hours})
