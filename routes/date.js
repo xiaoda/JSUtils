@@ -19,7 +19,7 @@ router.get('/working-hours', (req, res, next) => {
   if (countingPeriods) countingPeriods = eval(countingPeriods)
   else countingPeriods = []
   const hours = getWorkingHours(startDateTime, endDateTime, countingPeriods)
-  res.json({hours})
+  res.send(String(hours))
 })
 
 
@@ -52,6 +52,21 @@ router.post('/working-hours', (req, res, next) => {
 router.get('/first-date-of-month', (req, res, next) => {
   const {year, month} = req.query
   const date = getFirstDateOfMonth(year, month)
+  res.send(date)
+})
+
+/**
+ * @api {post} /date/first-date-of-month 获取某个月第一天的日期（Post）
+ * @apiName firstDateOfMonthPost
+ * @apiDescription [Source code↗](https://github.com/xiaoda/JSUtils/blob/master/core/date/first-and-last-date.js)
+ * @apiGroup Date
+ * 
+ * @apiBody {Number} year 年
+ * @apiBody {Number} month 月
+ */
+router.post('/first-date-of-month', (req, res, next) => {
+  const {year, month} = req.body
+  const date = getFirstDateOfMonth(year, month)
   res.json({date})
 })
 
@@ -66,6 +81,21 @@ router.get('/first-date-of-month', (req, res, next) => {
  */
 router.get('/last-date-of-month', (req, res, next) => {
   const {year, month} = req.query
+  const date = getLastDateOfMonth(year, month)
+  res.send(date)
+})
+
+/**
+ * @api {post} /date/last-date-of-month 获取某个月最后一天的日期（Post）
+ * @apiName lastDateOfMonthPost
+ * @apiDescription [Source code↗](https://github.com/xiaoda/JSUtils/blob/master/core/date/first-and-last-date.js)
+ * @apiGroup Date
+ * 
+ * @apiBody {Number} year 年
+ * @apiBody {Number} month 月
+ */
+router.post('/last-date-of-month', (req, res, next) => {
+  const {year, month} = req.body
   const date = getLastDateOfMonth(year, month)
   res.json({date})
 })
@@ -83,6 +113,22 @@ router.get('/part-of-day', (req, res, next) => {
   let {dateTime, division} = req.query
   if (division) division = eval(division)
   else division = {}
+  const part = getPartOfDay(dateTime, division)
+  res.send(part)
+})
+
+/**
+ * @api {post} /date/part-of-day 获取当天时间对应的部分（Post）
+ * @apiName partOfDayPost
+ * @apiDescription [Source code↗](https://github.com/xiaoda/JSUtils/blob/master/core/date/part-of-day.js)
+ * @apiGroup Date
+ * 
+ * @apiBody {String} dateTime 日期时间
+ * @apiBody {Object} [division] 自定义时间对应关系
+ */
+router.post('/part-of-day', (req, res, next) => {
+  let {dateTime, division} = req.body
+  if (!division) division = {}
   const part = getPartOfDay(dateTime, division)
   res.json({part})
 })

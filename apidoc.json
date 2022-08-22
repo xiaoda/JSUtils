@@ -6,8 +6,11 @@
     "workingHours",
     "workingHoursPost",
     "firstDateOfMonth",
+    "firstDateOfMonthPost",
     "lastDateOfMonth",
+    "lastDateOfMonthPost",
     "partOfDay",
-    "arrayToObject"
+    "partOfDayPost",
+    "arrayToObjectPost"
   ]
 }
